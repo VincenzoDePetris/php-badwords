@@ -1,8 +1,11 @@
 <?php
 
-$text = $_GET["text"];
+$paragraph = $_GET["paragraph"];
+$paragraph_len = strlen($paragraph);
 
-
+$dashboard = $GET["dashbord"];
+$censored_paragraph = str_replace($dashboard, '***', $paragraph);
+$censored_len = strlen($censored_paragraph);
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +17,16 @@ $text = $_GET["text"];
 </head>
 <body>
   <p>
-    <?php echo $text ?>
-</p>
+    <b><?php echo $paragraph_len ?></b>
+  </p>
+  <p>
+    <?php echo $paragraph ?>
+  </p>  
+  <p>
+    <b><?php echo $censored_len ?></b>
+  </p>
+  <p>
+    <?php echo $censored_paragraph ?>
+  </p>
 </body>
 </html>
